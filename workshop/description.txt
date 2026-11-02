@@ -19,7 +19,7 @@ Data Center doesn't install code mods by itself. With [url=https://steamcommunit
 [*][b]Faster ports.[/b] Normal server ports run at 1 Gbps, which limits any server to 20,000 IOPS. Gen 2 runs at 10 Gbps, and Gen 3 and 4 have SFP slots.
 [*][b]Unlocks go in order.[/b] Gen 2 needs the normal server, Gen 3 needs Gen 2, and Gen 4 needs Gen 3. The XP cost climbs steadily from the normal 3U up to the Gen 4 7U.
 [*][b]New switch:[/b] the starter switch's 16 copper ports plus 4 SFP slots. $810 and 500 XP, after the "4 x SFP" switch.
-[*][b]Bug fix:[/b] stops other mods (such as AutoLACP) from breaking the message ticker, which makes new servers stop connecting until you restart.
+[*][b]Bug fix:[/b] stops other mods from breaking the message ticker, which makes new servers stop connecting until you restart.
 [/list]
 
 [h2]Before you install (once, for any code mod)[/h2]
