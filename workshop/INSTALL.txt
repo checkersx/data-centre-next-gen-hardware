@@ -32,7 +32,7 @@ INSTALL
   3. Start the game.
 
 CHECK IT WORKED
-  - The MelonLoader console window shows "Next-Gen Hardware v1.0.0".
+  - The MelonLoader console window shows "Next-Gen Hardware v1.1.0".
   - The in-game shop shows servers named "... Gen 2", "... Gen 3", "... Gen 4".
 
 HAD "NEW SERVERS"?

@@ -19,6 +19,7 @@ Data Center doesn't install code mods by itself. With [url=https://steamcommunit
 [*][b]Faster ports.[/b] Normal server ports run at 1 Gbps, which limits any server to 20,000 IOPS. Gen 2 runs at 10 Gbps, and Gen 3 and 4 have SFP slots.
 [*][b]Unlocks go in order.[/b] Gen 2 needs the normal server, Gen 3 needs Gen 2, and Gen 4 needs Gen 3. The XP cost climbs steadily from the normal 3U up to the Gen 4 7U.
 [*][b]New switch:[/b] the starter switch's 16 copper ports plus 4 SFP slots. $810 and 500 XP, after the "4 x SFP" switch.
+[*][b]"New subnet" requests ask for IOPS[/b], not a number of servers (see below).
 [*][b]Bug fix:[/b] stops other mods from breaking the message ticker, which makes new servers stop connecting until you restart.
 [/list]
 
@@ -60,16 +61,21 @@ Data Center downloads Workshop mods into a folder of its own, which MelonLoader 
 [h3]Way 4: without the Steam Workshop[/h3]
 Download [b]NextGenHardware.dll[/b] from the [url=https://github.com/checkersx/data-centre-next-gen-hardware/releases]GitHub releases page[/url] and put it in the [b]Mods[/b] folder in your game folder.
 
-[b]Check it worked:[/b] the MelonLoader console shows [b]Next-Gen Hardware v1.0.0[/b], and the shop has "Gen 2", "Gen 3" and "Gen 4" servers.
+[b]Check it worked:[/b] the MelonLoader console shows [b]Next-Gen Hardware v1.1.0[/b], and the shop has "Gen 2", "Gen 3" and "Gen 4" servers.
 [b]Had "New Servers"?[/b] That's this mod's old name. Delete [b]NewServers.dll[/b] from your Mods folder. Your unlocks and servers carry over.
 
 [h2]Using Gen 3 and Gen 4 servers[/h2]
 Their SFP slots need a module before a cable connects, just like the fibre switches. Buy a box of SFP modules, hold it, click a slot to insert a module, then plug in a cable. Any module type is fast enough. [b]SFP RJ45[/b] takes an ordinary copper cable.
 
+[h2]"New subnet" service requests count IOPS[/h2]
+These used to ask for a number of servers, so you had to rack cheap ones just to make up the count. Now they ask for [b]5,000 IOPS per server[/b]: 20 servers becomes 100,000 IOPS, which one Gen 4 7U and two Gen 3 3Us cover. Servers count as before (set to that customer, with an IP in the new subnet), at their listed IOPS.
+[b]To turn it off:[/b] close the game, open [b]UserData\MelonPreferences.cfg[/b] in your game folder, and under [noparse][NextGenHardware][/noparse] change [b]ServiceRequestsCountIops = true[/b] to [b]false[/b].
+
 [h2]Saves[/h2]
 [list]
 [*]Saves stay vanilla. Upgraded hardware is saved as its normal version, and a small [i].newservers.json[/i] file next to the save remembers the upgrades.
 [*]Remove the mod and your saves still load: upgrades become normal servers, the new switch becomes a starter switch, and cables in SFP slots are lost (re-cable those servers).
+[*]Without the mod, a request met on IOPS with fewer servers than it names goes back to In Progress (you keep the reward).
 [*]Rack templates don't support upgraded hardware yet.
 [/list]
 

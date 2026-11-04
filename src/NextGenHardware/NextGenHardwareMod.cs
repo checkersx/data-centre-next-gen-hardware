@@ -1,7 +1,7 @@
 using System;
 using MelonLoader;
 
-[assembly: MelonInfo(typeof(NextGenHardware.NextGenHardwareMod), "Next-Gen Hardware", "1.0.0", "checkersx")]
+[assembly: MelonInfo(typeof(NextGenHardware.NextGenHardwareMod), "Next-Gen Hardware", "1.1.0", "checkersx")]
 [assembly: MelonGame("Waseku", "Data Center")]
 
 namespace NextGenHardware
@@ -16,6 +16,7 @@ namespace NextGenHardware
         public override void OnInitializeMelon()
         {
             Log = LoggerInstance;
+            ServiceRequestIops.Init();
             Patching.Install(HarmonyInstance);
         }
 

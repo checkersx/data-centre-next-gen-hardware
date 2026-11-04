@@ -35,6 +35,10 @@ namespace NextGenHardware
             Patch(h, typeof(ShopItem), nameof(ShopItem.ButtonBuyItem), typeof(ShopCards), nameof(ShopCards.UnlockGatePrefix), null);
             Patch(h, typeof(ShopItem), nameof(ShopItem.TryUnlock), typeof(ShopCards), nameof(ShopCards.UnlockGatePrefix), null);
 
+            Patch(h, typeof(CreateSubnetAndMoveServersSR), nameof(CreateSubnetAndMoveServersSR.IsCompleted), typeof(ServiceRequestIops), nameof(ServiceRequestIops.IsCompletedPrefix), null);
+            Patch(h, typeof(CreateSubnetAndMoveServersSR), nameof(CreateSubnetAndMoveServersSR.GetProgressText), typeof(ServiceRequestIops), null, nameof(ServiceRequestIops.ProgressPostfix));
+            Patch(h, typeof(ServiceRequestRow), nameof(ServiceRequestRow.OnClickServiceRequestRow), typeof(ServiceRequestIops), null, nameof(ServiceRequestIops.DescriptionPostfix));
+
             Patch(h, typeof(StaticUIElements), nameof(StaticUIElements.AddMeesageInField), typeof(MessageQueueGuard), nameof(MessageQueueGuard.Prefix), null);
             Patch(h, typeof(StaticUIElements), nameof(StaticUIElements.UpdateMessageDisplay), typeof(MessageQueueGuard), nameof(MessageQueueGuard.Prefix), null);
         }

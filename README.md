@@ -50,6 +50,20 @@ The starter switch (16 × 10 Gbps copper ports) with 4 SFP slots added on the ri
 
 ![The new switch: 16 copper ports, then 4 SFP slots on the right](docs/switch.jpg)
 
+### "New subnet" service requests count IOPS, not servers
+
+The game's "New subnet for …" service request asks you to move a number of servers into a new subnet. With faster servers that meant racking cheap ones just to make up the count. This mod asks for **5,000 IOPS per server** instead (one normal 3U server's worth): a request for 20 servers needs 100,000 IOPS, which one Gen 4 7U and two Gen 3 3Us cover.
+
+- A server counts the same way as before: it's set to that customer and has an IP in the new subnet. It now counts at its listed IOPS (switched on or not, as in the normal game).
+- The request's text and progress line show IOPS ("IOPS in subnet: 45,000 / 100,000"). Click the request again to refresh the progress line.
+- With normal 3U servers nothing changes, and requests you've already completed stay completed.
+
+**To turn it off**, close the game, open `UserData\MelonPreferences.cfg` in your game folder, and change this line under `[NextGenHardware]` to `false`:
+
+```
+ServiceRequestsCountIops = true
+```
+
 ### A fix for a bug where new servers stop connecting
 
 Some other mods (AutoLACP 1.0.0, for example) can knock the game's message ticker out of sync. When that happens, newly placed servers and switches stop connecting to customers until you restart the game. This mod quietly repairs the ticker before that can happen, whichever mod caused it.
@@ -119,7 +133,7 @@ This mod used to be called **New Servers**. If you had it, **delete `NewServers.
 
 ## Check it worked
 
-- **In the MelonLoader console** (the black text window that opens with the game), look for **`Next-Gen Hardware v1.0.0`**.
+- **In the MelonLoader console** (the black text window that opens with the game), look for **`Next-Gen Hardware v1.1.0`**.
 - **In the game**, open the shop on the computer. Each server row now has extra cards such as **"System X 3U Gen 2 9000 IOPS"**, with Gen 3 and Gen 4 in a new row underneath.
 
 If neither shows up, see [Problems](#problems).
@@ -166,6 +180,9 @@ Your saves still load afterwards (see [Saves](#saves)).
 - Upgraded servers have turned back into their normal versions (normal IOPS).
 - The new switch is a plain starter switch, and any cables that were in its 4 SFP slots are gone.
 - Gen 3/4 servers lose the modules and cables in their SFP slots. Re-cable those servers to get them working again.
+- A "New subnet" service request you completed on IOPS, with fewer servers than it names, goes back to In Progress. You keep the reward it paid.
+
+Service requests themselves are saved exactly as the normal game saves them. The mod only changes how they're checked and displayed.
 
 **Other things to know:**
 - **Steam Cloud** might not copy the small `.newservers.json` file to another PC. If it doesn't, upgraded servers load as normal ones on that PC. (Not tested.)
