@@ -37,14 +37,14 @@ All four ways start from your [b]game folder[/b]. To open it: in your Steam Libr
 Check: if the [b]Plugins[/b] folder in your game folder contains [b]WorkshopModSync.dll[/b], you have it.
 [olist]
 [*]Subscribe to this mod.
-[*]Start the game. Done. WorkshopModSync installs your subscribed mods every time the game starts, updates included.
+[*]Start the game. Done. WorkshopModSync installs your subscribed mods, and their updates, each time the game starts.
 [/olist]
 
 [h3]Way 2: set up WorkshopModSync once, then subscribe and play[/h3]
-[url=https://steamcommunity.com/sharedfiles/filedetails/?id=3830456292]WorkshopModSync[/url] is a free helper made by [b]Bloody[/b]. Set it up once, and this mod and other Workshop code mods install and update themselves. It can't install itself, so:
+[b]WorkshopModSync[/b] is a free helper made by [b]Bloody[/b]. Set it up once, and this mod and other Workshop code mods install and update themselves. It can't install itself, so:
 [olist]
 [*]Close the game, then subscribe to [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3830456292]WorkshopModSync[/url] and to this mod.
-[*]Set up WorkshopModSync by following [b]Set it up once[/b] on [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3830456292]its page[/url]. It comes with a one-click installer ([b]WorkshopModSyncInstaller.exe[/b]) that finds Data Center and puts it in the right place.
+[*]Follow [b]Set it up once[/b] on its page. Its one-click installer ([b]WorkshopModSyncInstaller.exe[/b]) finds Data Center and puts it in the right place.
 [*]Start the game. Done. This mod installs itself and stays up to date.
 [/olist]
 
@@ -69,7 +69,7 @@ Their SFP slots need a module before a cable connects, just like the fibre switc
 
 [h2]"New subnet" service requests count IOPS[/h2]
 These used to ask for a number of servers, so you had to rack cheap ones just to make up the count. Now they ask for [b]5,000 IOPS per server[/b]: 20 servers becomes 100,000 IOPS, which one Gen 4 7U and two Gen 3 3Us cover. Servers count as before (set to that customer, with an IP in the new subnet), at their listed IOPS.
-[b]To turn it off:[/b] close the game, open [b]UserData\MelonPreferences.cfg[/b] in your game folder, and under [noparse][NextGenHardware][/noparse] change [b]ServiceRequestsCountIops = true[/b] to [b]false[/b].
+[b]To turn it off:[/b] close the game, open [b]UserData\MelonPreferences.cfg[/b] in your game folder, and in its [b]NextGenHardware[/b] section change [b]ServiceRequestsCountIops = true[/b] to [b]false[/b].
 
 [h2]Saves[/h2]
 [list]
